@@ -1,0 +1,78 @@
+% iaus2esa.tex -- sample pages for Proceedings IAU Symposium document class
+% (based on v1.0 cca2esam.tex)
+% v1.04 released 17 May 2004 by TechBooks
+%% small changes and additions made by KAvdH/IAU 4 June 2004
+% Copyright (2004) International Astronomical Union
+
+\NeedsTeXFormat{LaTeX2e}
+
+\documentclass{iau} 
+\usepackage{graphicx}
+
+\title[Asteroids in LSST] %% give here short title %%
+{Asteroid Detection with the Large Synoptic Survey Telescope (LSST)}
+
+\author[R. Lynne Jones \& Mario Juric]   %% give here short author list %%
+{R. Lynne Jones$^1$
+%%  \thanks{Present address: Department of Astronomy, University of
+%%  Washington, Seattle, USA},
+ \and Mario Juric$^2$}
+
+\affiliation{$^1$University of Washington\\ email: {\tt lynnej@uw.edu} \\[\affilskip]
+$^2$University of Washington \\email: {\tt mjuric@astro.astro.washington.edu}}
+
+\pubyear{2015}
+\volume{318}  %% insert here IAU Symposium No.
+\setcounter{page}{1}
+\jname{Asteroids: New Observations, New Models}
+\editors{Steve Chesley, Alessandro Morbidelli, Robert Jedicke \&
+  Davide Farnocchia eds.}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+LSST is awesome for detecting asteroids.
+\keywords{Keyword1, keyword2, keyword3, etc.}
+%% add here a maximum of 10 keywords, to be taken form the file <Keywords.txt>
+\end{abstract}
+
+\firstsection % if your document starts with a section,
+                     % remove some space above using this command.
+\section{Introduction}
+
+Why we build LSST, what is LSST. Why LSST is awesome for asteroids.
+
+\section{LSST's potential for understanding asteroids}
+
+MAF analysis of moving objects
+completeness
+characterization potential
+how you can calculate this kind of stuff yourself
+
+
+\section{Data challenges in discovering asteroids}
+
+DM challenges (MOPS challenges overview)
+Difference imaging will be okay
+MOPS processing will be okay
+ongoing work to make sure that it will all be okay
+
+\section{Conclusion}
+
+Timeline for LSST?
+potential for better optimizing LSST for moving objects? 
+
+
+\begin{thebibliography}{}
+
+\bibitem[Amari \etal\ (1995)]{Amari_etal95}
+{Amari, S., Hoppe, P., Zinner, E., \& Lewis R.S.} 1995,
+\textit{Meteoritics}, 30, 490 
+
+\end{thebibliography}
+
+%\begin{discussion}
+%\end{discussion}
+
+\end{document}
