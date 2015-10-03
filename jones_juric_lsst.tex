@@ -33,7 +33,7 @@ $^2$University of Washington \\email: {\tt mjuric@astro.astro.washington.edu}}
 
 \begin{abstract}
 The Large Synoptic Survey Telescope (LSST) will be a ground-based,
-optical, all-sky, rapid cadence survey project wiht tremendous
+optical, all-sky, rapid cadence survey project with tremendous
 potential for discovering and characterizing asteroids.
 
 With LSST's large 6.5m diameter primary mirror, a wide 9.6 square
@@ -52,15 +52,18 @@ bodies in the Solar System by a factor of 10-100 times, among all
 populations. The median number of observations for Main Belt asteroids
 will be on the order of 200-300, with Near Earth Objects receiving a
 median of 90 observations. These observations will be spread among
-$ugrizy$ bandpasses, providing photometric colors and the possibility
-of performing sparse lightcurve inversion to determine rotation
-periods, spin axes, and shape information.
+$ugrizy$ bandpasses, providing photometric colors and the allowing
+sparse lightcurve inversion to determine rotation periods, spin axes, and shape information.
 
 These catalogs will be created using automated detection software, the
 LSST Moving Object Processing System (MOPS), that will take advantage
 of the carefully characterized LSST optical system, cosmetically
-clean camera, and recent improvements in difference imaging. [short
-description of the DM section here].
+clean camera, and recent improvements in difference imaging. Tests
+with the prototype MOPS software indicate that linking detections (and thus
+`discovery') will be possible at LSST depths with our working
+model for the survey strategy, but evaluation of MOPS and improvements
+in the survey strategy will continue. All data productsand software created by
+LSST will be publicly available.
 \keywords{Keyword1, keyword2, keyword3, etc.}
 %% add here a maximum of 10 keywords, to be taken form the file <Keywords.txt>
 \end{abstract}
@@ -69,27 +72,76 @@ description of the DM section here].
                      % remove some space above using this command.
 \section{Introduction}
 
-Why we build LSST, what is LSST. Why LSST is awesome for asteroids.
+The Large Synoptic Survey Telescope (LSST) is a next-generation survey
+project created primarily to [science goals]
+point to overview paper and science book
 
-\section{LSST's potential for understanding asteroids}
+\section{LSST characteristics}
+details about LSST's physical setup
+mirror size
+camera size
+throughput estimates (from where)
+limiting magnitude estimates (how arrived at)
+refer to overview paper for updates
 
-MAF analysis of moving objects
-completeness
-characterization potential
-how you can calculate this kind of stuff yourself
+\section{LSST data products}
+data products public! software open source!
+data products that will be provided by lsst
+level 1->sso detections + orbits,
+  sso detections: position, shape, model fits (point source, trailed
+  source, dipole)
+level 2-> exquisite calibration, 
+level 3-> user extensions, 
+and trailing-> alerts
+calibration requirements for lsst
 
+\section{The LSST survey strategy}
+lsst general survey strategy
+not optimized for solar system objects, but obvious potential
+working on plan to best balance science return among all goals
+describe opsim and maf at a general level, as tools for simulations
 
-\section{Data challenges in discovering asteroids}
+\section{Survey strategy implications for moving objects}
+extending capabilities of maf and simulation framework to moving
+objects
+calculate trailing losses and detection losses
+include focal plane footprint
+include m5 values from opsim and colors appropriate to sources
+in particular (relevant for this symposium) we can look at PHA, NEO,
+and MBA discovery and characterization
+discovery rates with standard MOPS requirements/completeness
+ various size distributions and effect on total number of objects
+with extended MOPS requirements
+with better MOPS requirements (and why we should continue to work on software)
+how many objects can be detected as they trail
+characterization - how many observations in general we obtain,
+arclength
+characterization example: detecting activity
+characterization problem needing solution: determining colors
+then colors + orbital elements -> families
+and number of observations -> sparse lightcurve inversion
+and colors + albedo relationship -> size distribution (better than
+simple LF assumptions)
+point users to repos (where?)
 
-DM challenges (MOPS challenges overview)
-Difference imaging will be okay
-MOPS processing will be okay
-ongoing work to make sure that it will all be okay
+\section{Discovering moving objects with MOPS}
+description of discovery requirements with current MOPS
+requirements for MOPS to work:
+ false positive rate (expected results, given DES/machine
+ learning/etc) (driven harder here by other science areas)
+   ccds within spec, crosstalk small, no optical ghosts, 
+ capabilities of linking objects (results of previous experiments with
+ prototypes)  improvements within MOPS
+show number of chances to discovery an object and how many chances we
+have as function of H 
+ongoing work to understand limitations and capabilities of MOPS
 
 \section{Conclusion}
+timeline for lsst
+briefly additional science cases
+call for metrics and ways to make sure survey strategy is good for
+moving objects
 
-Timeline for LSST?
-potential for better optimizing LSST for moving objects? 
 
 
 \begin{thebibliography}{}
