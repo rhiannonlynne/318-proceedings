@@ -85,6 +85,47 @@ limiting magnitude estimates (how arrived at)
 refer to overview paper for updates
 
 \section{LSST data products}
+
+Over its lifetime, LSST will gather millions of images (on the order
+of 2.5 million visits, consisting of a pair of back-to-back 15s
+exposures). The information in these images must be processed into
+measurements before it can be widely useful; turning these images into
+queryable catalogs of detections and the associations of these
+detections into astronomical sources (linking detections from each
+visit with the related detections in other visits) will be done by the
+LSST Data Management (DM) Pipeline.
+
+The LSST DM pipeline will be entirely open source and publicly
+available. The various repositories that make up the DM software stack
+can currently be found on github at \url{http://github.com/lsst};
+more information about the stack and instructions for installing the
+LSST software stack can be found at \url{http://dm.lsst.org}.
+
+LSST data products -- catalogs -- will be immediately publicly available to
+institutions with data rights (currently: all US and Chilean
+institutions and institutions which have signed an MOA with LSST
+Corporation and their designees).  The details of these data products
+are defined in detail in the LSST Data Products Definitions Document
+(LSST LSE-163 \cite{LSST_DPDD}). In general, the catalogs can be
+thought of as falling into three categories:
+\itemize
+\li{Level 1 data products are created during nightly
+  processing. The images in each visit are combined to reject cosmic
+  rays, then subtracted from a template image created from previously
+  acquired imaging (typically 6 months to a year earlier). The detections
+  measured in each difference image correspond to transients,
+  variables, moving objects, and artifacts. These outputs will be run
+  through machine learning algorithms to help reject artifacts. The resulting detections, along with relevant
+  information from existing catalogs such as identification of known
+  variable stars or the location of nearby background galaxies, will
+  be released within 60 seconds of the end of each visit as the LSST
+  Alert stream. In addition, these difference image catalogs (after removing known variable stars) will be used to feed the
+  LSST moving object processing system (MOPS). MOPS will link
+  detections from different visits within a night into tracklets and
+  then combine these with tracklets from other nights into tracks and
+  finally orbits; it will also extend known orbits with new detections
+  of these objects. The 
+
 data products public! software open source!
 data products that will be provided by lsst
 level 1->sso detections + orbits,
@@ -146,9 +187,9 @@ moving objects
 
 \begin{thebibliography}{}
 
-\bibitem[Amari \etal\ (1995)]{Amari_etal95}
-{Amari, S., Hoppe, P., Zinner, E., \& Lewis R.S.} 1995,
-\textit{Meteoritics}, 30, 490 
+\bibitem[LSST DPDD (2013)]{LSST_DPDD}
+{Juric, M.} 2013, LSST LSE-163,
+\url{http://www.lsst.org/content/data-products-definition-document}
 
 \end{thebibliography}
 
