@@ -8,6 +8,7 @@
 
 \documentclass{iau}
 \usepackage{graphicx}
+\usepackage{hyperref}
 
 \title[Asteroids in LSST] %% give here short title %%
 {Asteroid Discovery and Characterization with the Large Synoptic Survey Telescope (LSST)}
@@ -108,24 +109,34 @@ Corporation and their designees).  The details of these data products
 are defined in detail in the LSST Data Products Definitions Document
 (LSST LSE-163 \cite{LSST_DPDD}). In general, the catalogs can be
 thought of as falling into three categories:
-\itemize
-\li{Level 1 data products are created during nightly
+\begin{itemize}
+\item Level 1 data products are created during nightly
   processing. The images in each visit are combined to reject cosmic
-  rays, then subtracted from a template image created from previously
-  acquired imaging (typically 6 months to a year earlier). The detections
-  measured in each difference image correspond to transients,
-  variables, moving objects, and artifacts. These outputs will be run
-  through machine learning algorithms to help reject artifacts. The resulting detections, along with relevant
-  information from existing catalogs such as identification of known
-  variable stars or the location of nearby background galaxies, will
-  be released within 60 seconds of the end of each visit as the LSST
-  Alert stream. In addition, these difference image catalogs (after removing known variable stars) will be used to feed the
-  LSST moving object processing system (MOPS). MOPS will link
-  detections from different visits within a night into tracklets and
-  then combine these with tracklets from other nights into tracks and
-  finally orbits; it will also extend known orbits with new detections
-  of these objects. The 
+rays, then subtracted from a template image created from previously
+acquired imaging (typically 6 months to a year earlier). The
+detections measured in each difference image correspond to transients,
+variables, moving objects, and artifacts. These outputs will be run
+through machine learning algorithms to help reject artifacts. The
+resulting detections, along with relevant information from existing
+catalogs such as identification of known variable stars or the
+location of nearby background galaxies, will be released within 60
+seconds of the end of each visit as the LSST Alert stream.
 
+In addition, these difference image catalogs (after removing known
+variable stars) will be used to feed the LSST moving object processing
+system (MOPS). MOPS will link detections from different visits within
+a night into tracklets and then combine these with tracklets from
+other nights into tracks and finally into orbits; it will also extend known
+orbits with new detections of these objects. These moving object
+catalogs will updated and released on a daily basis.
+
+The Alert stream and the moving object catalogs (the linked orbits and
+their individual detections) make up the Level 1 data products.
+
+\item Level 2 data products are created during yearly data processing
+  and include a more precise level of calibration in photometry and
+  astrometry. Each image 
+\end{itemize}
 data products public! software open source!
 data products that will be provided by lsst
 level 1->sso detections + orbits,
