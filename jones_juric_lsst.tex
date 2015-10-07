@@ -174,49 +174,91 @@ this analysis.
 \section{The LSST telescope}
 
 The primary science goals for LSST drive the design of the telescope
-and camera. The final design includes an optical telescope with
-$ugrizy$ filters. The primary mirror for the
-telescope is 8.4m in diameter; the effective diameter is 6.7m after
-account for obscuration and vignetting. The telescope has a fast f/1.2
-focal ratio; together with the 3.2 Gigapixel camera, this provides a
-9.6 square degree field of view (with 0.2''/pixel platescale). The
-fill factor of the camera is 90\%, counting active silicon within a
-$3.5^\circ$ diameter circle inscribed in the field
-of view; the fill factor counting only chip gaps but over the entire
-(non-circular) focal plane is slightly higher, but similar. See Figure \ref{focalplane} for
-an illustration of the focal plane.
+and camera, coupling the size of the telescope, area in the field of
+view, filter choices and typical exposure time to achieve the desired
+single image depth, coadded image depth, number of repeat visits and
+their distribution among filters, and survey footprint.
 
+The resulting final design is an optical telescope with
+$ugrizy$ filters and a primary mirror of 8.4m in
+diameter (the effective diameter is 6.7m after account for obscuration
+and vignetting). The telescope has a fast f/1.2 focal ratio; together
+with the 3.2 Gigapixel camera, this provides a 9.6 square degree field
+of view with 0.2 ''/pixel platescale. Short exposures and a rapid
+survey strategy covering the entire visible sky every three to four
+nights in multiple filters complete the basic strategy to meet these
+science goals.
 
-The current plan is that LSST will obtain pairs of short (15 second)
-exposures, combining these into an equivalent 30 second `visit' to
-combat cosmic rays. In order to maintain a high duty cycle, the
-overhead for each visit is short: 2 second readout per exposure and a
-5 second slew/settle time between visits (for short slews).
+The details of the observing strategy will be discussed further in
+Section~\ref{surveystrategy}, but at the base of the cadence is the
+pair of back-to-back 15 second exposures that make up a 30 second
+`visit'. For most purposes, this 30 second visit can be considered the
+equivalent exposure time for LSST; the back-to-back `snaps' will be
+processed separately to help reject cosmic rays (and could be used to
+help determine velocity direction for trailing moving objects), but
+the images will be combined for most purposes and individual `image'
+depths correspond to the 30 second `visit' $5\sigma$ point-source
+limiting magnitude. This drives further design choices for the
+telescope; in order to maintain a high duty cycle, the camera readout time
+is only 2 seconds per exposure and the slew-settle time between
+nearby fields is only 5 seconds per visit.
 
-With the information above, combined with weather information from the
-Cerro Pachon site (such as the expected atmospheric IQ and sky
+The fill factor of the camera is 90\%, counting active silicon within
+a $3.5^\circ$ diameter circle inscribed in the field of view; the fill
+factor counting only chip gaps but over the entire (non-circular)
+focal plane is slightly higher, but similar. See
+Figure~\ref{focalplane} for an illustration of the focal plane.
+
+The information above can be combined with weather information from
+the Cerro Pachon site (such as the expected atmospheric IQ and sky
 brightness) and system engineering data on the expected throughput
-response curves, we can calculate the fiducial five sigma limiting
-depths for LSST. Based on records from an on-site monitoring system,
-the median atmospheric IQ is 0.66, 0.61, 0.56, 0.53, 0.50, 0.48
-arcseconds in our $ugrizy$ bandpasses, respectively. The telescope
-hardware is expected to contribute an additional 0.4''. In dark sky,
-at zenith, the sky brightness is expected to be 23.0, 22.2, 21.2,
-20.5, 19.6, and 18.6 mags/sq arcsecond in $ugrizy$, respectively. This
-is based on dark sky spectra obtained from other sites, but verified
-by broad band sky brightness measurements at Cerro Pachon.
+response curves in order to calculate the fiducial five sigma limiting
+depths for LSST. An on-site monitoring system at Cerro Pachon has been
+used to record free atmospheric FWHM values over several years; the
+median values are reported in Table~\ref{table2}, adjusted for each
+bandpass. The telescope hardware is expected to contribute an
+additional 0.4 arcseconds. The expected dark sky skybrightness can
+also be generated using detailed sky spectra obtained elsewhere (Patat
+refs) modified to match broad-band sky brightness measurements
+reported from Cerro Pachon and other nearby sites.
 
 System engineering continually updates the expected throughput curves,
-based on updated data from prototype sensors and the expected performance of
-the mirrors and filters and lenses, including broadband coatings and
-loss estimates due to condensation and contamination. The current
-performance estimates are available in a github repository, at
+based on updated data from prototype sensors and the expected
+performance of the mirrors and filters and lenses, including broadband
+coatings and loss estimates due to condensation and contamination. The
+current performance estimates are available in a github repository, at
 \url{http://github.com/lsst-pst/syseng_throughputs}.  Using these
 throughput curves and the information above, we can calculate the
 expected five-sigma point-source limiting magnitudes for LSST, under
-fiducial seeing and dark sky conditions: 23.6, 24.9, 24.4, 24.0, 23.4,
-and 22.5 in $ugrizy$ respectively. These results and the throughput
-curves for each filter are illustrated in Figure~\ref{throughputs}.
+fiducial seeing and dark sky conditions, as shown in
+Table~\ref{table2}. The throughput curves for each filter are
+illustrated in Figure~\ref{throughputs}.
+
+\begin{table}
+\begin{center}
+\caption{$ugrizy$ $5\sigma$ point source limiting magnitudes$^1$}
+\label{table2}
+ {\scriptsize
+  \begin{tabular}{|l|c|c|c|c|c|c|}\hline
+ & $u$ & $g$ & $r$ & $i$ & $z$ & $y$ \\ \hline
+Median atmospheric IQ$^2$  & 0.66 & 0.61 & 0.56 & 0.53 & 0.50 & 0.48 \\
+    \hline
+Dark sky brightness (mag/sq'')$^3$ & 23.0 & 22.2 &  21.2 & 20.5 & 19.6 & 18.6
+    \\ \hline
+$5\sigma$ limiting magnitude & 23.6 & 24.9 & 24.4 & 24.0 & 23.4 & 22.5
+    \\ \hline
+ \end{tabular}
+  }
+ \end{center}
+\vspace{1mm}
+ \scriptsize{
+ {\it Notes:}\\
+  $^1$Please see the LSST Overview Paper \cite{overviewpaper} for
+  updated values.
+  $^2$Based on Cerro Pachon site monitoring.
+  $^3$Based on dark sky spectra convolved with the LSST bandpasses,
+  validated with site monitoring data from Cerro Pachon.}
+\end{table}
 
 As LSST continues to move towards operations, expected values for each
 of these components will be replaced by measured, `as delivered'
@@ -248,29 +290,12 @@ repositories and reported in the LSST Overview Paper \cite{overviewpaper}.
 
 \section{LSST data management}
 
-Over its lifetime, LSST will gather millions of images (on the order
-of 2.5 million visits, consisting of a pair of back-to-back 15s
-exposures). The information in these images must be processed into
-measurements before it can be widely useful; turning these images into
-queryable catalogs of detections and the associations of these
-detections into astronomical sources (linking detections from each
-visit with the related detections in other visits) will be done by the
-LSST Data Management (DM) Pipeline.
-
-The LSST DM pipeline will be entirely open source and publicly
-available. The various repositories that make up the DM software stack
-can currently be found on github at \url{http://github.com/lsst};
-more information about the stack and instructions for installing the
-LSST software stack can be found at \url{http://dm.lsst.org}.
-
-LSST data products (images and catalogs) will be immediately publicly available to
-institutions with data rights (currently: all US and Chilean
-institutions and institutions which have signed an MOA with LSST
-Corporation and their designees).  The details of these data products
-are defined in detail in the LSST Data Products Definitions Document (DPDD)
-\cite{LSST_DPDD}. In general, the catalogs can be
-thought of as falling into three categories: Level 1, Level 2 and
-Level 3.
+LSST will acquire millions of images (on the order of 2.5 million
+visits, each consisting of a pair of exposures). The LSST Data
+Management (DM) software pipeline has the task of turning these images
+into catalogs enabling the primary science goals. In general these
+catalogs can be thought of as falling into three categories: Level 1,
+Level 2 and Level 3.
 
 Level 1 data products are created during nightly processing. The
 images in each visit are combined to reject cosmic rays, then
@@ -302,7 +327,9 @@ avenue via Alerts.
 Level 2 data products are created during yearly data processing and
 include a more precise level of calibration in photometry and
 astrometry. During the yearly data processing, all existing images
-will be re-processed using the most recent software release. These
+will be reprocessed using the most recent software release (including
+reprocessing these images through MOPS, likely using slightly
+improved templates for image differencing). These
 data release catalogs will reach 10mmag absolute photometric accuracy
 and 10mas absolute astrometric accuracy. The increased accuracy is
 possible due to various algorithms that compute global solutions;
@@ -316,28 +343,105 @@ publicly available depending on the user. Publicly available Level 3
 data products which prove particularly useful could become fully
 federated with LSST databases.
 
-\section{The LSST survey strategy}
+The LSST DM pipeline will be entirely open source and publicly
+available. The various repositories that make up the DM software stack
+can currently be found on github at \url{http://github.com/lsst};
+more information about the stack and instructions for installing the
+LSST software stack can be found at \url{http://dm.lsst.org}. Details
+of the data products (images and catalogs) are defined in the LSST
+Data Products Definitions Document (DPDD) \cite{LSST_DPDD}. All LSST
+data products will be immediately publicly available to institutions
+with data rights.
 
-LSST's short exposure times, large mirror, and wide field of view combine
-to create a telescope that can generate deep individual images of
-moving objects without trailing (for objects moving slower than
-$\approx1$ degree/day), cover the entire visible sky every few days in
-multiple filters to capture variable and transient phenomena, and
-gather observations of galaxies under a variety of conditions to very
-deep limiting magnitudes over the course of ten years. The details of
-the observing strategy determine how well the survey will do at
-achieving each of these science goals.
+\section{LSST survey strategy}
+\label{surveystrategy}
 
-It should be clear from the above that LSST is not a survey optimized
-solely for discovering solar system objects, but that it has great
-potential in this area.
+Many of the basic parameters of the LSST survey strategy -- telescope
+size, field of view, approximate exposure time -- have been fixed. In
+addition, given the survey length and constraints on the survey
+footprint, the outer envelope of the survey characteristics can be
+estimated: the survey likely has about 2.5 million visits to
+distribute over about 30,000 square degrees for all survey fields,
+with about 825 visits per field in the main survey footprint
+($\approx18,000$ sq deg) to distribute between $ugrizy$ filters. Most
+fields in the main survey footprint can be observed twice per night
+(with an interval of about 30 minutes) every three to four days, on an
+ongoing basis over their observing season, repeating for ten
+years. This is the strawman LSST observing strategy at present.
 
-lsst general survey strategy
-not optimized for solar system objects, but obvious potential
-working on plan to best balance science return among all goals
-describe opsim and maf at a general level, as tools for simulations
+However, the details of the observing cadence have not yet been
+fixed. Instead of distributing visits fairly evenly in
+time for all fields over all ten years, an interesting variant may be to
+concentrate a subset of those visits for some fields into a shorter
+period of time. For example, 10\% of the fields in the main survey
+footprint could be observed 10\% more often in one year; this would
+mean that in every other year these same fields would be observed
+slightly more than 1\% less frequently. By shifting which 10\% of fields
+were receiving more frequent observations, eventually the entire sky
+could receive the same treatment. This has been described as a
+`rolling cadence' option. Other options that may be interesting for
+studying solar system objects might include taking more frequent
+observations for fields near opposition and then reducing the number
+of observations for fields away from opposition. The process of
+optimizing the survey strategy in terms of cadence is just starting to
+get underway.
 
-\section{Survey strategy implications for moving objects}
+LSST has several tools to help this process of survey strategy
+optimization. The first is the LSST Operations Simulator (OpSim) \cite{opsim},
+which combines a realistic weather history and a high-fidelity
+telescope model with a scheduler driven by a set of proposals that
+attempt to parametrize a basic observing strategy ({\it e.g.}, a
+proposal for the main survey footprint that specifies the main survey footprint,
+skybrightness and seeing limits, number of visits desired in each
+filter, and the time window between pairs of visits in each night,
+together with another proposal for the north ecliptic spur which
+specifies a set of fields outside the main survey footprint targeted
+for moving objects, a separate set of skybrightness and seeing limits,
+etc.). The output of OpSim is a simulated pointing history, complete
+with observing conditions and individual visit limiting magnitudes,
+that demonstrate how LSST might survey the sky. A simple visualization
+of an OpSim run is shown in Figure~\ref{footprint}; this also
+illustrates the footprint for the survey in various proposals and
+filters.
+
+The second tool is a user-extensible python package called the LSST
+Metrics Analysis Framework (MAF) \cite{maf}. MAF was created to help
+analyze OpSim outputs. Using MAF, it is simple to write short pieces
+of python code (`metrics') that can be plugged into the framework to
+evaluate some aspect of OpSim. By collecting these metrics from a wide
+representation of the astronomical community, and using these metrics
+to evaluate various OpSim surveys created with a variety of scheduler
+configurations (and eventually as optimization constraints during
+scheduling), we hope to maximize science return from LSST across a
+wide range of science goals. An example of using MAF to evaluate the
+median time between revisits at each point on the sky is given in
+Figure~\ref{time}.
+
+OpSim and MAF are publicly available open-source software packages,
+provided as part of the LSST Systems Engineering Simulations
+effort. Instructions for installing them are available at
+\url{https://confluence.lsstcorp.org/display/SIM/Catalogs+and+MAF}. 
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{nvisits}
+\caption{LSST survey footprint. 
+\label{footprint}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{time}
+\caption{Median time between LSST return visits from night to night,
+  at each point in the survey footprint (left). Histogram of revisit times
+  within each night (right). 
+\label{time}}
+\end{figure}
+
+
+\section{LSST survey strategy and moving objects}
+
+MAF 
 extending capabilities of maf and simulation framework to moving
 objects
 calculate trailing losses and detection losses
