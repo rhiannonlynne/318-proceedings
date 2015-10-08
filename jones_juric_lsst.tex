@@ -530,7 +530,7 @@ Figure~\ref{arclength}.
 \begin{center}
 \includegraphics[width=0.9\linewidth]{nobs}
 \captionsetup{width=0.9\linewidth}
-\caption{The mean number of observations for each of our sample small
+\caption{The mean number of observations (per object) for each of our sample small
   body populations, as a function of $H$ magnitude.
 \label{nobs}}
 \end{center}
@@ -561,24 +561,25 @@ window of 20 nights, with at least two visits per night. Third, a
 relaxed discovery criteria intended to demonstrate the effect of
 improving MOPS software: 3 nights within 30 days, again with at least
 2 visits per night. Finally, a `magic' discovery criteria intended to
-get an idea of the upper limit for detection if linking software is not a
-constraint: 6 observations in 60 nights. The cumulative completeness (completeness for $H
-\le X$) is calculated by multiplying the differential completeness
-values by a power law ($\alpha=0.3$). The results are shown in
-Figure~\ref{completeness}, including the value $H_{50}$, corresponding
-to the $H$ value where the cumulative completeness drops to 50\% of
-the overall population. It can be see that these varying discovery
-scenarios have the largest effects on the PHA and NEO
-populations. With more rigorous requirements, the $H_{50}$ values are
-increased by a few to several tenths of a magnitude; with relaxed
-requirements, these values are pushed faintward by a few tenths. The
-peak completeness levels change by a few percent for PHAs and NEOs
-only. This suggests that even with the basic cadence LSST is doing
-fairly well at discovering moving objects, but that improvements in
-the cadence could do better, and that money spent on improving
-discovery software, even by a relatively modest amount, directly leads
-to improvements in completeness (and can be considered in a way as
-trades with the observing strategy).
+get an idea of the upper limit for detection if linking software is
+not a constraint: 6 observations in 60 nights. The cumulative
+completeness (completeness for $H \le X$) is calculated by multiplying
+the differential completeness values by a power law
+($\alpha=0.3$). The results are shown in Figure~\ref{completeness},
+including the value $H_{50}$, corresponding to the $H$ value where the
+cumulative completeness drops to 50\% of the overall population. It
+can be see that these varying discovery scenarios have the largest
+effects on the PHA and NEO populations. With more rigorous
+requirements, the $H_{50}$ values are increased by a few to several
+tenths of a magnitude; with relaxed requirements, these values are
+pushed faintward by a few tenths. The peak completeness levels change
+by a few percent for PHAs and NEOs only. This suggests that even with
+the basic cadence LSST is doing fairly well at discovering moving
+objects; with improvements in the cadence (probably some version of a
+rolling cadence to concentrate more visits into a given chunk of time)
+it could do better; and money spent on improving linking software,
+even by a relatively modest amount, directly leads to improvements in
+completeness.
 
 \begin{figure}[tb]
 \begin{center}
@@ -611,7 +612,7 @@ timescale. Repeating this exercise over a variety of timescales, we
 come up with the probabilities of detecting activity shown in
 Figures~\ref{activityTime} and \ref{activityPeriod}
 
-\begin{figure}[tb]
+\begin{figure}[bt]
 \begin{minipage}{.5\textwidth}
 \begin{center}
 \includegraphics[width=0.9\linewidth]{activityTime}
@@ -651,10 +652,20 @@ have as function of H
 ongoing work to understand limitations and capabilities of MOPS
 
 \section{Conclusion}
-timeline for lsst
-briefly additional science cases
-call for metrics and ways to make sure survey strategy is good for
-moving objects
+
+The catalogs of minor planets that will come from LSST over its
+lifetime have enormous potential for planetary science. Small body
+populations throughout the Solar System will see an increase of 10-100
+times more objects than currently known, including Earth minimoon,
+irregular satellite, and cometary populations. Many of these new
+objects will have large numbers of observations over the course of
+several years, in multiple filters, allowing for scientific
+characterization of the physical properties of these populations.
+
+LSST provides simulation tools (OpSim and MAF) to assess the impact of
+the survey strategy on specific science goals. We encourage feedback
+from the community, especially in terms of metrics, to help maximize
+the scientific return of LSST.
 
 
 
