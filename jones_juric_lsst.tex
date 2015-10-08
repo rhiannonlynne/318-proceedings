@@ -14,7 +14,7 @@
 \title[Asteroids in LSST] %% give here short title %%
 {Asteroid Discovery and Characterization with the Large Synoptic Survey Telescope}
 
-\author[R. Lynne Jones, Mario Juric]   %% give here short author list %%
+\author[R. L.  Jones, M. Juri\'{c}, \v{Z},  Ivezi\'{c}]   %% give here short author list %%
 {R. Lynne Jones$^1$, Mario Juri\'{c}$^2$, 
 %%  \thanks{Present address: Department of Astronomy, University of
 %%  Washington, Seattle, USA},
@@ -65,7 +65,7 @@ clean camera, and recent improvements in difference imaging. Tests
 with the prototype MOPS software indicate that linking detections (and thus
 `discovery') will be possible at LSST depths with our working
 model for the survey strategy, but evaluation of MOPS and improvements
-in the survey strategy will continue. All data productsand software created by
+in the survey strategy will continue. All data products and software created by
 LSST will be publicly available.
 \keywords{Keyword1, keyword2, keyword3, etc.}
 %% add here a maximum of 10 keywords, to be taken form the file <Keywords.txt>
@@ -181,7 +181,7 @@ their distribution among filters, and survey footprint.
 
 The resulting final design is an optical telescope with
 $ugrizy$ filters and a primary mirror of 8.4m in
-diameter (the effective diameter is 6.7m after account for obscuration
+diameter (the effective diameter is 6.5m after account for obscuration
 and vignetting). The telescope has a fast f/1.2 focal ratio; together
 with the 3.2 Gigapixel camera, this provides a 9.6 square degree field
 of view with 0.2 ''/pixel platescale. Short exposures and a rapid
@@ -209,32 +209,33 @@ factor counting only chip gaps but over the entire (non-circular)
 focal plane is slightly higher, but similar. See
 Figure~\ref{focalplane} for an illustration of the focal plane.
 
-The information above can be combined with weather information from
-the Cerro Pachon site (such as the expected atmospheric IQ and sky
-brightness) and system engineering data on the expected throughput
-response curves in order to calculate the fiducial five sigma limiting
-depths for LSST. An on-site monitoring system at Cerro Pachon has been
-used to record free atmospheric FWHM values over several years; the
-median values are reported in Table~\ref{table2}, adjusted for each
-bandpass. The telescope hardware is expected to contribute an
-additional 0.4 arcseconds. The expected dark sky skybrightness can
-also be generated using detailed sky spectra obtained elsewhere (Patat
-refs) modified to match broad-band sky brightness measurements
-reported from Cerro Pachon and other nearby sites.
+On-site monitoring has provided information on the expected free
+atmosphere FWHM and sky brightness (see Table~\ref{table2}). The
+telescope hardware is expected to contribute an additional 0.4'' to
+the IQ. The expected dark sky skybrightness is generated using
+detailed sky spectra obtained elsewhere (Patat refs). modified to
+match broad-band sky brightness measurements reported from Cerro
+Pachon and other nearby sites.
 
-System engineering continually updates the expected throughput curves,
-based on updated data from prototype sensors and the expected
-performance of the mirrors and filters and lenses, including broadband
-coatings and loss estimates due to condensation and contamination. The
-current performance estimates are available in a github repository, at
-\url{http://github.com/lsst-pst/syseng_throughputs}.  Using these
-throughput curves and the information above, we can calculate the
-expected five-sigma point-source limiting magnitudes for LSST, under
-fiducial seeing and dark sky conditions, as shown in
-Table~\ref{table2}. The throughput curves for each filter are
+Expected throughput curves for each component of the hardware system
+are maintained by system engineering (see the github
+repo\footnote{\url{http://github.com/lsst-pst/syseng_throughputs}} for
+latest values).  These are based on data from prototype sensors and
+the expected performance of the mirrors and filters and lenses,
+including broadband coatings and loss estimates due to condensation
+and contamination. The throughput curves for each filter are
 illustrated in Figure~\ref{throughputs}.
 
-\begin{table}
+Combining all of the information above, we can calculate the
+expected five-sigma point-source limiting magnitudes for LSST, under
+fiducial seeing and dark sky conditions - see Table~\ref{table2}.
+
+As LSST continues to move toward operations, the expected values for each
+of these components will be replaced by `as delivered'
+versions. Up-to-date values will be maintained in the github
+repositories and reported in the LSST Overview Paper \cite{overviewpaper}.
+
+\begin{table}[tbh]
 \begin{center}
 \caption{$ugrizy$ $5\sigma$ point source limiting magnitudes$^1$}
 \label{table2}
@@ -260,12 +261,8 @@ $5\sigma$ limiting magnitude & 23.6 & 24.9 & 24.4 & 24.0 & 23.4 & 22.5
   validated with site monitoring data from Cerro Pachon.}
 \end{table}
 
-As LSST continues to move towards operations, expected values for each
-of these components will be replaced by measured, `as delivered'
-versions. Up-to-date values will be maintained in the github
-repositories and reported in the LSST Overview Paper \cite{overviewpaper}.
 
-\begin{figure}[htb]
+\begin{figure}[tb]
 \begin{minipage}{.5\textwidth}
 \begin{center}
 \includegraphics[width=0.9\linewidth]{focalplane}
@@ -280,9 +277,10 @@ repositories and reported in the LSST Overview Paper \cite{overviewpaper}.
 \includegraphics[width=0.9\linewidth]{throughputs}
 \captionsetup{width=0.9\linewidth}
 \caption{Expected LSST throughput response in $ugrizy$, including
-  an X=1.2 atmospheric throughput curve (the dotted line). The
-  expected dark sky brightness (in AB magnitudes) is also indicated,
-  as the thin black line.\label{throughputs}}
+  an atmospheric throughput curve (the dotted line). The
+  expected dark sky brightness in AB magnitudes is also shown (the
+  thin black line).
+\label{throughputs}}
 \end{center}
 \end{minipage}
 \end{figure}
@@ -345,124 +343,300 @@ federated with LSST databases.
 
 The LSST DM pipeline will be entirely open source and publicly
 available. The various repositories that make up the DM software stack
-can currently be found on github at \url{http://github.com/lsst};
-more information about the stack and instructions for installing the
-LSST software stack can be found at \url{http://dm.lsst.org}. Details
-of the data products (images and catalogs) are defined in the LSST
-Data Products Definitions Document (DPDD) \cite{LSST_DPDD}. All LSST
-data products will be immediately publicly available to institutions
-with data rights.
+can currently be found on github\footnote{
+\url{http://github.com/lsst}}; more information about the stack and
+instructions for installing the LSST software stack can be found at
+\url{http://dm.lsst.org}. Details of the data products (images and
+catalogs) are defined in the LSST Data Products Definitions Document
+(DPDD)\footnote{
+\url{http://www.lsst.org/content/data-products-definition-document}}
+. All LSST data products will be immediately publicly available to
+institutions with data rights.
 
 \section{LSST survey strategy}
 \label{surveystrategy}
 
-Many of the basic parameters of the LSST survey strategy -- telescope
-size, field of view, approximate exposure time -- have been fixed. In
-addition, given the survey length and constraints on the survey
-footprint, the outer envelope of the survey characteristics can be
-estimated: the survey likely has about 2.5 million visits to
-distribute over about 30,000 square degrees for all survey fields,
+The basic parameters of LSST -- telescope
+size, field of view -- have been fixed. In
+addition, given the survey length, visit exposure time, and constraints on the survey
+footprint, an approximate outer envelope of the survey characteristics can be
+estimated: the survey has about 2.5 million visits to
+distribute over about 25,000 square degrees for all survey fields,
 with about 825 visits per field in the main survey footprint
-($\approx18,000$ sq deg) to distribute between $ugrizy$ filters. Most
+($\approx18,000$ sq deg) to distribute among $ugrizy$ filters. Most
 fields in the main survey footprint can be observed twice per night
 (with an interval of about 30 minutes) every three to four days, on an
 ongoing basis over their observing season, repeating for ten
 years. This is the strawman LSST observing strategy at present.
 
-However, the details of the observing cadence have not yet been
-fixed. Instead of distributing visits fairly evenly in
-time for all fields over all ten years, an interesting variant may be to
+However, the details of the observing cadence have {\bf not} yet been
+fixed. For example, instead of distributing visits fairly evenly in time for all
+fields over all ten years, a variant may be to
 concentrate a subset of those visits for some fields into a shorter
-period of time. For example, 10\% of the fields in the main survey
-footprint could be observed 10\% more often in one year; this would
-mean that in every other year these same fields would be observed
-slightly more than 1\% less frequently. By shifting which 10\% of fields
-were receiving more frequent observations, eventually the entire sky
-could receive the same treatment. This has been described as a
-`rolling cadence' option. Other options that may be interesting for
-studying solar system objects might include taking more frequent
+period of time (a `rolling cadence'). One option that may be interesting for
+studying solar system objects could include taking more frequent
 observations for fields near opposition and then reducing the number
 of observations for fields away from opposition. The process of
 optimizing the survey strategy in terms of cadence is just starting to
 get underway.
 
 LSST has several tools to help this process of survey strategy
-optimization. The first is the LSST Operations Simulator (OpSim) \cite{opsim},
-which combines a realistic weather history and a high-fidelity
-telescope model with a scheduler driven by a set of proposals that
-attempt to parametrize a basic observing strategy ({\it e.g.}, a
-proposal for the main survey footprint that specifies the main survey footprint,
-skybrightness and seeing limits, number of visits desired in each
-filter, and the time window between pairs of visits in each night,
-together with another proposal for the north ecliptic spur which
-specifies a set of fields outside the main survey footprint targeted
-for moving objects, a separate set of skybrightness and seeing limits,
-etc.). The output of OpSim is a simulated pointing history, complete
-with observing conditions and individual visit limiting magnitudes,
-that demonstrate how LSST might survey the sky. A simple visualization
-of an OpSim run is shown in Figure~\ref{footprint}; this also
-illustrates the footprint for the survey in various proposals and
-filters.
+optimization. The first is the LSST Operations Simulator (OpSim)
+\cite{opsim}, which combines a realistic weather history and a
+high-fidelity telescope model with a scheduler driven by a set of
+proposals that attempt to parametrize a basic observing strategy ({\it
+e.g.}, a proposal for the main survey footprint that specifies the
+main survey footprint, skybrightness and seeing limits, number of
+visits desired in each filter, and the time window between pairs of
+visits in each night). The output of OpSim is a simulated pointing
+history, complete with observing conditions and individual visit
+limiting magnitudes, that demonstrate how LSST might survey the sky. A
+simple visualization of an OpSim run is shown in
+Figure~\ref{footprint}; this also shows the footprint for the
+survey in various proposals and filters.
 
 The second tool is a user-extensible python package called the LSST
 Metrics Analysis Framework (MAF) \cite{maf}. MAF was created to help
 analyze OpSim outputs. Using MAF, it is simple to write short pieces
 of python code (`metrics') that can be plugged into the framework to
 evaluate some aspect of OpSim. By collecting these metrics from a wide
-representation of the astronomical community, and using these metrics
-to evaluate various OpSim surveys created with a variety of scheduler
-configurations (and eventually as optimization constraints during
-scheduling), we hope to maximize science return from LSST across a
-wide range of science goals. An example of using MAF to evaluate the
-median time between revisits at each point on the sky is given in
-Figure~\ref{time}.
+representation of the astronomical community, we can evaluate OpSim
+surveys created with a variety of scheduler configurations and
+maximize science return from LSST across a wide range of science
+goals. An example of using MAF to evaluate the median time between
+revisits at each point on the sky is given in Figure~\ref{time}.
 
-OpSim and MAF are publicly available open-source software packages,
+OpSim and MAF are open-source software packages,
 provided as part of the LSST Systems Engineering Simulations
 effort. Instructions for installing them are available at
-\url{https://confluence.lsstcorp.org/display/SIM/Catalogs+and+MAF}. 
+online\footnote{
+\url{https://confluence.lsstcorp.org/display/SIM/Catalogs+and+MAF}}. 
 
-\begin{figure}
+\begin{figure}[tb]
 \centering
-\includegraphics[width=0.8\textwidth]{nvisits}
-\caption{LSST survey footprint. 
+\includegraphics[width=0.8\textwidth]{Nvisits}
+\caption{The distribution of visits across the LSST survey footprint,
+  in a sample OpSim simulated survey. The main survey covers the area
+  from $-65^\circ<$ Dec $<5^\circ$, excluding a small area around the
+  galactic plane. The area from Dec=$5^\circ$  up to $10^\circ$ north
+  of the ecliptic is covered in an additional observing program; other
+  programs cover the South Celestial Pole and the Galactic Plane.
 \label{footprint}}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[tb]
 \centering
-\includegraphics[width=0.8\textwidth]{time}
-\caption{Median time between LSST return visits from night to night,
-  at each point in the survey footprint (left). Histogram of revisit times
-  within each night (right). 
+\includegraphics[width=0.4\textwidth]{internight}
+\includegraphics[width=0.4\textwidth]{intranight}
+\caption{Left: the median number of nights between consecutive
+  visits to a field, for an OpSim simulated survey. Right: A histogram
+  of revisit times, within each night.
 \label{time}}
 \end{figure}
 
 
-\section{LSST survey strategy and moving objects}
+\section{Evaluating the LSST survey strategy for Solar System science}
 
-MAF 
-extending capabilities of maf and simulation framework to moving
-objects
-calculate trailing losses and detection losses
-include focal plane footprint
-include m5 values from opsim and colors appropriate to sources
-in particular (relevant for this symposium) we can look at PHA, NEO,
-and MBA discovery and characterization
-discovery rates with standard MOPS requirements/completeness
- various size distributions and effect on total number of objects
-with extended MOPS requirements
-with better MOPS requirements (and why we should continue to work on software)
-how many objects can be detected as they trail
-characterization - how many observations in general we obtain,
-arclength
-characterization example: detecting activity
-characterization problem needing solution: determining colors
-then colors + orbital elements -> families
-and number of observations -> sparse lightcurve inversion
-and colors + albedo relationship -> size distribution (better than
-simple LF assumptions)
-point users to repos (where?)
+The LSST Metrics Analysis Framework (MAF) can be used to evaluate the
+performance of OpSim simulated surveys with respect to Solar System
+science goals. MAF will allow a user to specify a population of moving
+objects (by providing their orbital parameters), specify a particular
+OpSim survey, and then generate their simulated observations. MAF uses
+the open-source package OpenOrb \cite{oorb} in generating the
+ephemeris information for these simulated observations.
+
+In many cases, the input population of moving objects can be
+small (on the order of a few thousand); MAF is able to clone the resulting
+detections over a range of $H$ magnitudes, so that 
+metrics can be evaluated over a wide range of $H$ values while only
+using a relatively small set of orbits. MAF tests using 10,000 MBAs
+produced identical metric results as tests using 2,000 MBAs;
+statistically, this method of cloning the input population is quite
+adequate for most purposes.
+
+As MAF generates the detection lists for each object, the reference
+$H$ value in the orbit file is used to generate an apparent $V$ band
+magnitude, then the (optionally user-assigned) spectrum is used to
+generate a magnitude in the LSST bandpass. When the object is cloned
+over the user-specified range of $H$, these apparent magnitudes are
+adjusted accordingly. When evaluating a specific metric ({\it e.g.}
+the number of observations obtained for each orbit in the sample for a
+range of $H$ magnitudes), the desired SNR cutoff can be specified and
+calculated, including trailing losses and the $5\sigma$ limiting magnitude for each visit.
+
+Trailing loss estimates are provided by MAF. Trailing losses
+occur whenever the motion of a moving object spreads their light over
+a wider area than a simple stellar PSF. There are two different
+effects to consider with trailing losses: simple SNR trailing losses
+and `detection' losses.  The first is simply the degradation in SNR
+that occurs (relative to a stationary PSF) because the trailed object
+includes a larger number of background pixels in its footprint. The
+second effect (detection loss) occurs because source detection
+software is optimized for detecting point sources and thus use a
+stellar PSF-like filter which is not optimal for trailed objects.
+This second aspect of trailing loss is an effect that can
+be mitigated with improved software ({\it e.g.} detecting to a lower
+SNR threshhold and attempting to detect
+sources using a variety of trailed PSF filters). These trailing loss
+effects for LSST are:
+\begin{eqnarray}
+\Delta \, m & = &-1.25 \, log_{10} \left( 1 + \frac{a \, x^2} { 1 + b\,
+    x} \right) \\
+x & = & \frac{v \, T_{exp}} {24 \, \theta} 
+\end{eqnarray}
+where $v$ is the velocity (in degrees/day), $T_{exp}$ is the exposure
+time (in seconds), and $\theta$ is the FWHM (in arcseconds). For
+SNR trailing losses, we find $a = 0.67$ and $b = 1.16$; for
+detection losses, we find $a=0.42$ and $b=0$. An illustration of the
+magnitude of these trailing loss effects for 0.7'' seeing is given in
+Figure~\ref{trailinglosses}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{trailing_losses}
+\caption{Trailing losses for 30 second LSST visits, assuming seeing of
+  0.7''. The dotted line shows SNR trailing losses, the solid line
+  indicates  detection trailing losses. With software improvements
+  detection losses can be mitigated.
+\label{trailinglosses}}
+\end{figure}
+
+MAF can also include the details of the camera focal plane layout, as
+illustrated in Figure~\ref{focalplane}; detections which would fall into
+chip gaps are then removed.
+
+To demonstrate the potential of LSST as a tool for studying the
+Solar System, we calculate a variety of metrics for a set of small
+body population samples ranging from Potentially Hazardous Asteroids
+(PHAs) to TransNeptunianObjects (TNOs). The 2000 sample orbits used for each
+population except the PHAs come from the Pan-STARRS Synthetic Solar
+System Model \cite{s3m}; the PHA orbits are taken from the Minor
+Planet Center\footnote{\url{http://www.minorplanetcenter.net/}} database,
+trimmed to the subset of $\approx1500$ objects larger than 1km in
+diameter. In all metrics shown here, we then clone these orbits over a
+range of $H$ magnitudes, assumed the (larger) detection trailing
+loss, included the camera focal plane footprint, and only used
+resulting detections above a SNR=5 cutoff.
+
+First we simply count the total number of observations for each orbit
+as a function of $H$; the mean value for all orbits in each population
+is shown in Figure~\ref{nobs}. Similarly, we can look at the time of
+the first and last observation to get the overall observational arc
+length; the mean values  of the observational arc are shown in
+Figure~\ref{arclength}.
+
+\begin{figure}[tb]
+\begin{minipage}{.5\textwidth}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{nobs}
+\captionsetup{width=0.9\linewidth}
+\caption{The mean number of observations for each of our sample small
+  body populations, as a function of $H$ magnitude.
+\label{nobs}}
+\end{center}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{arclength}
+\captionsetup{width=0.9\linewidth}
+\caption{The mean observational arc (in days) for each of our sample
+  small body populations, as a function of $H$ magnitude.
+\label{arclength}}
+\end{center}
+\end{minipage}
+\end{figure}
+
+We also calculate the number of `discovery opportunities' available
+for each object and use this to calculate the overall completeness
+across the population (counting an object as `discovered' if it had at
+least one discovery opportunity). The definition of a discovery
+opportunity can be varied by the user, but here we look at a variety
+of cases. First, the current basic MOPS requirement: detections on
+three different nights within a window of 15 nights, with detections
+in at least two visits per night separated by less than 90
+minutes. Second, an extended MOPS requirement intended to be more
+rigorous while still nominally matching the typical observing pattern
+in our OpSim survey: detections on four different nights within a
+window of 20 nights, with at least two visits per night. Third, a
+relaxed discovery criteria intended to demonstrate the effect of
+improving MOPS software: 3 nights within 30 days, again with at least
+2 visits per night. Finally, a `magic' discovery criteria intended to
+get an idea of the upper limit for detection if linking software is not a
+constraint: 6 observations in 60 nights. The cumulative completeness (completeness for $H
+\le X$) is calculated by multiplying the differential completeness
+values by a power law ($\alpha=0.3$). The results are shown in
+Figure~\ref{completeness}, including the value $H_{50}$, corresponding
+to the $H$ value where the cumulative completeness drops to 50\% of
+the overall population. It can be see that these varying discovery
+scenarios have the largest effects on the PHA and NEO
+populations. With more rigorous requirements, the $H_{50}$ values are
+increased by a few to several tenths of a magnitude; with relaxed
+requirements, these values are pushed faintward by a few tenths. The
+peak completeness levels change by a few percent for PHAs and NEOs
+only. This suggests that even with the basic cadence LSST is doing
+fairly well at discovering moving objects, but that improvements in
+the cadence could do better, and that money spent on improving
+discovery software, even by a relatively modest amount, directly leads
+to improvements in completeness (and can be considered in a way as
+trades with the observing strategy).
+
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[width=0.45\linewidth]{CumulativeCompleteness_standard}
+\includegraphics[width=0.45\linewidth]{CumulativeCompleteness_four} \\
+\includegraphics[width=0.45\linewidth]{CumulativeCompleteness_long}
+\includegraphics[width=0.45\linewidth]{CumulativeCompleteness_magic}
+\caption{Cumulative completeness calculated using various discovery
+  criteria as outlined in the text, for each of our sample small body
+  populations. $H_{50}$ in the plot legends indicates the $H$ value where
+  the cumulative completeness falls to 50\% of the overall population.
+\label{completeness}}
+\end{center}
+\end{figure}
+
+To demonstrate a more specialized MAF metric, aimed at evaluating the
+capability of LSST to help determine the source of activity in active
+asteroids, we also present the result of a `activity detection'
+metric. Here we take the detections of each object after applying all
+the focal plane and SNR cuts and bin the times of these detections
+according to either time since the start of the survey (interesting if
+activity is due to collisions and thus random) or by time relative to the
+period of the object (the interesting timescale if activity is
+periodic and associated with the object's orbit). We
+then have calculated the probability of observing the object on a
+given timescale, and if we assume LSST DM will provide enough
+information to identify activity if it is present, this is equivalent
+to the probability of detecting activity on that given
+timescale. Repeating this exercise over a variety of timescales, we
+come up with the probabilities of detecting activity shown in
+Figures~\ref{activityTime} and \ref{activityPeriod}
+
+\begin{figure}[tb]
+\begin{minipage}{.5\textwidth}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{activityTime}
+\captionsetup{width=0.9\linewidth}
+\caption{The likelihood of detecting activity which lasts at least a
+  given amount of time (in days); mean (solid)
+  probabilities across each of the sample populations, as well as maximum
+  (dashed) and minimum (dotted) probabilities for individual objects
+  within the sample.
+\label{activityTime}}
+\end{center}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{activityPeriod}
+\captionsetup{width=0.9\linewidth}
+\caption{The likelihood of detecting activity which lasts at least a
+  given fraction of the orbital period of the object; mean (solid)
+  probabilities across each of the sample populations, as well as maximum
+  (dashed) and minimum (dotted) probabilities for individual objects
+  within the sample.
+\label{activityPeriod}}
+\end{center}
+\end{minipage}
+\end{figure}
 
 \section{Discovering moving objects with MOPS}
 description of discovery requirements with current MOPS
@@ -472,7 +646,7 @@ requirements for MOPS to work:
    ccds within spec, crosstalk small, no optical ghosts, 
  capabilities of linking objects (results of previous experiments with
  prototypes)  improvements within MOPS
-show number of chances to discovery an object and how many chances we
+show number of chances to discover an object and how many chances we
 have as function of H 
 ongoing work to understand limitations and capabilities of MOPS
 
@@ -489,6 +663,13 @@ moving objects
 \bibitem[LSST LSE-163 (2013)]{LSST_DPDD}
 {Juric, M.} 2013, The LSST Data Products Definition Document, LSST LSE-163,
 \url{http://www.lsst.org/content/data-products-definition-document}
+
+\bibitem[Grav \etal\ (2011)]{s3m}
+ {{Grav}, T. and {Jedicke}, R. and {Denneau}, L. and {Chesley}, S. and 
+	{Holman}, M.~J. and {Spahr}, T.~B.} 2011, \textit{PASP}, 123, 423.
+
+
+
 
 \end{thebibliography}
 
