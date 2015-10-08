@@ -72,7 +72,7 @@ def calcM5s(hardware, system, atmos, title='m5'):
         title = ''
     plt.title('System total response curves %s' %(title))
     if title == '':
-        plt.savefig('throughputs.png', format='png', dpi=600)
+        plt.savefig('throughputs.pdf', format='pdf', dpi=600)
     return m5
 
 
