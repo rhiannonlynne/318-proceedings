@@ -11,6 +11,10 @@ filtercolors = {'u':'b', 'g':'c', 'r':'g',
                 'i':'y', 'z':'r', 'y':'m'}
 
 
+plt.rcParams['axes.titlesize'] = 20
+plt.rcParams['axes.labelsize'] = 20
+
+
 def calcM5s(hardware, system, atmos, title='m5'):
     photParams = PhotometricParameters()
     lsstDefaults = LSSTdefaults()
@@ -142,4 +146,4 @@ if __name__ == '__main__':
             system[detector][f].setBandpass(wavelen, hw_sb*atmosphere.sb)
         m5[detector] = calcM5s(hardware[detector], system[detector], atmosphere, title='Vendor %s' %detector)
 
-    plt.show()
+#    plt.show()
